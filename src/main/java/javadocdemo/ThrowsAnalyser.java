@@ -18,7 +18,7 @@ public class ThrowsAnalyser {
 		final Set<String> exceptionsThrown = method.getBody().get().findAll(ThrowStmt.class).parallelStream()
 				.map(stmt -> stmt.getExpression().asObjectCreationExpr().getType().toString())
 				.collect(toSet());
-		
+//		method.setName("moo");
 		final Set<String> exceptionsDocumented = method.getJavadoc()
 				.map(value -> value.getBlockTags().stream()
 						.filter(t -> t.getType() == JavadocBlockTag.Type.THROWS)
